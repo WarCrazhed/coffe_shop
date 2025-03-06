@@ -15,7 +15,11 @@
               text-2xl font-bold">Coffee Shop</a>
               <div>
               {% if user.is_authenticated %}
-                Hola {{ user.username }}
+                <p>Hola, {{ user.username }}</p>
+                <form action="{% url "logout" %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit">Logout</button>
+                </form>
               {% else %}
                 <a href="{% url "login" %}">Login</a>
               {% endif %}
