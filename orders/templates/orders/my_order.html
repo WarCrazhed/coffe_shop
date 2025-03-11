@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>{{order.user.username}}</p>
+<p>{{order.order_date|date:"d/m/Y H:i"}}</p>
+
+{% for product_order in order.orderproduct_set.all %}
+    {{product_order.product_name}}
+    {{product_order.price}}
+{% empty %}
+    <p>No hay items en tu orden</p>
+{% endfor %}
+
+{% endblock content %}

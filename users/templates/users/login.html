@@ -1,14 +1,22 @@
 {% extends "base.html" %} {% load tailwind_filters %} {% block content %}
-<div class="max-w-2xl mx-auto">
-  <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl my-10">Iniciar sesión</h1>
-  <form action="" method="post">
-    {% csrf_token %} {{ form|crispy}}
-    <button
-      class="inline-block rounded-sm border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:ring-3 focus:outline-hidden"
-      type="submit"
-    >
-      Login
-    </button>
-  </form>
+<div class="min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Iniciar sesión</h2>
+    <form action="" method="post">
+      {{ form|crispy}} {% csrf_token %}
+      <button
+        class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        type="submit"
+      >
+        Login
+      </button>
+      <p class="mt-4 text-center text-gray-600">
+        ¿No tienes cuenta? Registrate
+        <a href="{% url 'register' %}" class="text-blue-500 hover:underline"
+          >aquí</a
+        >
+      </p>
+    </form>
+  </div>
+  {% endblock content %}
 </div>
-{% endblock content %}
