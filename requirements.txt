@@ -1,3 +1,4 @@
 Django==4.2.16
 pillow==11.1.0
 crispy-tailwind==1.0.3
+djangorestframework==3.15.2
